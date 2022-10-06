@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+    <%- include('partials/head') %>
+</head>
+<body class="d-flex flex-column min-vh-100">
+    <header>
+        <%- include('partials/header') %>
+    </header>
+    &nbsp;&nbsp;
+    <main>
+        <div class="container">
+            <div class="page-header text-center">                
+                <h1><img class = "rounded-circle" src="<%=user.pic%>" alt=""> <span class="fa fa-anchor"></span> <%= user.name%></h1>
+            </div>
+            <div class="row">
+                <!-- FACEBOOK INFORMATION -->
+                <div class="col-sm-6">
+                    <div class="well">
+                        <h3 class="text-primary"><span class="fa fa-facebook"></span> Facebook</h3>
+                            <p>
+<<<<<<< HEAD:Stats_Improver/views/profile.ejs
+                                <strong>UserID</strong>: <%= user.uid %><br>
+                                <!-- <strong>email</strong>: <%= user.email %><br> -->
+                                <strong>Name</strong>: <%= user.name %><br>
+                                <!-- <strong>gender</strong>: <%= user.gender %><br> -->
+                                
+=======
+                                <strong>id</strong>: <%= user.uid %><br>
+                                <strong>email</strong>: <%= user.email %><br>
+                                <strong>name</strong>: <%= user.name %><br>
+                                <strong>gender</strong>: <%= user.gender %><br>
+                                <strong>Profile pic</strong><br>
+                                <img src="<%=user.pic%>" width="200" height="200" alt="">
+>>>>>>> parent of f013911 (Everything working, except payment which haven't been implemented):views/profile.ejs
+                            </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="js/backstretch.min.js" defer></script>
+        <script src="js/backstretch_postnow.js" defer></script>
+    </main>
+    <%- include('partials/footer') %>
+</body>
+</html>
