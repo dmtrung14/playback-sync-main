@@ -1,189 +1,144 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Anything is possible</title>
     <%- include('partials/head') %>
-    <style>
-        body { padding-top:80px; }
-        h1 { text-align: center;}
-        h3 {text-align: center;}
-       </style>
-    
-    <!-- <style>
-      body { margin: 0; padding-bottom: 3rem; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
-
-      #form { background: rgba(0, 0, 0, 0.15); padding: 0.25rem; position: fixed; bottom: 0; left: 0; right: 0; display: flex; height: 3rem; box-sizing: border-box; backdrop-filter: blur(10px); }
-      #input { border: none; padding: 0 1rem; flex-grow: 1; border-radius: 2rem; margin: 0.25rem; }
-      #input:focus { outline: none; }
-      #form > button { background: #333; border: none; padding: 0 1rem; margin: 0.25rem; border-radius: 3px; outline: none; color: #fff; }
-
-      #messages { list-style-type: none; margin: 0; padding: 0; }
-      #messages > li { padding: 0.5rem 1rem; }
-      #messages > li:nth-child(odd) { background: #efefef; }
-    </style> -->
-
   </head>
-
-  <body>
-
+  <body class="d-flex flex-column min-vh-100">
     <header>
-      <%- include('partials/header') %>
-  </header>
-        
-        <div id="player"></div>
-        <div id="controller">
-          <div class="btn-grp" style="float:left;">
-            <button id="playVideo" type="button" class="btn btn-default" >
-              <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
-              <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
-            </button>
-            <button id= "pauseVideo" type="button" class="btn btn-default">
-              <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
-              <span class="glyphicon glyphicon-pause" aria-hidden="true"></span>
-            </button>
-          </div>
-          <div id="progressbar" style="width: 600 px; height: 37px; margin-left: 10px; float:left;">
-            <div id="line" style="width: 600px; border-style: solid; top: 50%; position: relative; border-width: 1px;"></div>
-            <div id="square" style="height: 15px; width: 15px; position: relative;border-width: 2px;border-style: solid; top: 8.7px;left: 0%  "></div>
-          </div>
-        </div>
-
-
-      </div>
-      <!-- /.container -->
-
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')</script>
-    <script src="js/bootstrap.min.js"></script>
-
-      <script>
-        function progressBarLoop () {
-          var progressBar = $ ('#progressbar');
-          var progressSquare= $ ('#square');
-          var videoLength = player.getDuration();
-          progressBar.click(function(event){
-            var div0ffset = $ (this).offset();
-            console.log(div0ffset);
-            var seekTo = (event.pageX - div0ffset.left)/600*videoLength;
-            var mydata = {state: 'play', time: seekTo}
-            socket.emit('event',mydata);
-          });
-        setInterval(function(){
-          if (player == null || progressBar == null){
-            return;
-          }
-          console.log(player.getCurrentTime());
-          var fraction = player.getCurrentTime()/player.getDuration()*100;
-          progressSquare.css("left", fraction.toString()+ "%");
-        }, 200);
-      }
-      </script>
+        <%- include('partials/header') %>
+    </header>
+    &nbsp;&nbsp;
+    <main>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+      <script>window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')</script>
+      <script src="js/bootstrap.min.js"></script>
+  
         <script>
-          // 2. This code loads the IFrame Player API code asynchronously.
-          var tag = document.createElement('script');
-    
-          tag.src = "https://www.youtube.com/iframe_api";
-          var firstScriptTag = document.getElementsByTagName('script')[0];
-          firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-    
-          // 3. This function creates an <iframe> (and YouTube player)
-          //    after the API code downloads.
-          var player;
-          function onYouTubeIframeAPIReady() {
-            player = new YT.Player('player', {
-              height: '480',
-              width: '720',
-              videoId: 'jNQXAC9IVRw',
-              playerVars: {
-                'disablekb':1,
-                'controls':0, 
-                'modestbranding':1,
-                'rel':0,
-                'showinfo':0,
-                'autoplay': 1,
-                'mute': 1, 
-              },
-              events: {
-                'onReady': onPlayerReady,
-                'onStateChange': onPlayerStateChange
-              }
+          function progressBarLoop () {
+            var progressBar = $ ('#progressbar');
+            var progressSquare= $ ('#square');
+            var videoLength = player.getDuration();
+            progressBar.click(function(event){
+              var div0ffset = $ (this).offset();
+              console.log(div0ffset);
+              var seekTo = (event.pageX - div0ffset.left)/600*videoLength;
+              var mydata = {state: 'play', time: seekTo}
+              socket.emit('event',mydata);
             });
-          }
-     function onPlayerReady(event) {
-        event.target.playVideo();
-      }
-      var done = false;
-      function onPlayerStateChange(event) {
-        progressBarLoop();
-        // if (event.data == YT.PlayerState.PLAYING && !done) {
-        //   setTimeout(stopVideo, 6000);
-        //   done = true;
-        // }
-      }
-      function stopVideo() {
-        player.stopVideo();
-      }
-      function seekTo(seconds){
-        player.seekTo(seconds);
-      }
-       </script>
-    <script src="/socket.io/socket.io.js"></script>
-    <script>
-      var socket = io();
-      var playButton = $('#playVideo')
-      var pauseButton = $('#pauseVideo')
-      playButton.click(function(event){
-          mydata = {state: 'play', time: player.getCurrentTime()}
-          //socket.emit('playerEvent', 'play');
-          socket.emit(mydata);
-          player.playVideo();
-      });
-      pauseButton.click(function(event){
-        mydata = {state: 'pause', time: player.getCurrentTime()}
-          socket.emit(mydata);
-          //socket.emit('playerEvent', 'pause');
-          player.pauseVideo();
-      });
-      socket.on('event', function(msg){
-        if (msg.state == 'play'){
-          if (Math.abs(msg.time - player.getCurrentTime()) > 1){
-            player.seekTo(msg.time);
-          }
-            player.playVideo();
-        }else if (msg.state == 'pause'){
-            player.pauseVideo();
+          setInterval(function(){
+            if (player == null || progressBar == null){
+              return;
+            }
+            console.log(player.getCurrentTime());
+            var fraction = player.getCurrentTime()/player.getDuration()*100;
+            progressSquare.css("left", fraction.toString()+ "%");
+          }, 200);
         }
-      var messages = document.getElementById('messages');
-      var form = document.getElementById('form');
-      var input = document.getElementById('input');
-
-      form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        if (input.value) {
-          socket.emit('chat message', input.value);
-          input.value = '';
-        }
-      });
-
-      socket.on('chat message', function(msg) {
-        var item = document.createElement('li');
-        item.textContent = msg;
-        messages.appendChild(item);
-        window.scrollTo(0, document.body.scrollHeight);
-      });   
-      });
+        </script>
+          <script>
+            // 2. This code loads the IFrame Player API code asynchronously.
+            var tag = document.createElement('script');
       
-    </script>
-  <ul id="messages"></ul>
-    <form id="form" action="">
-      <input id="input" autocomplete="off" />
-      <button id="playVideo" type="button" class="btn btn-default" >
-        <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
-        <span class="glyphicon glyphicon-send" aria-hidden="true"></span>
-    </form>
+            tag.src = "https://www.youtube.com/iframe_api";
+            var firstScriptTag = document.getElementsByTagName('script')[0];
+            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+      
+            // 3. This function creates an <iframe> (and YouTube player)
+            //    after the API code downloads.
+            var player;
+            function onYouTubeIframeAPIReady() {
+              player = new YT.Player('player', {
+                height: '480',
+                width: '720',
+                videoId: 'jNQXAC9IVRw',
+                playerVars: {
+                  'disablekb':1,
+                  'controls':0, 
+                  'modestbranding':1,
+                  'rel':0,
+                  'showinfo':0,
+                  'autoplay': 1,
+                  'mute': 1, 
+                },
+                events: {
+                  'onReady': onPlayerReady,
+                  'onStateChange': onPlayerStateChange
+                }
+              });
+            }
+       function onPlayerReady(event) {
+          event.target.playVideo();
+        }
+        var done = false;
+        function onPlayerStateChange(event) {
+          progressBarLoop();
+          // if (event.data == YT.PlayerState.PLAYING && !done) {
+          //   setTimeout(stopVideo, 6000);
+          //   done = true;
+          // }
+        }
+        function stopVideo() {
+          player.stopVideo();
+        }
+        function seekTo(seconds){
+          player.seekTo(seconds);
+        }
+         </script>
+      <script src="/socket.io/socket.io.js"></script>
+      <script>
+        var socket = io();
+        var playButton = $('#playVideo')
+        var pauseButton = $('#pauseVideo')
+        playButton.click(function(event){
+            mydata = {state: 'play', time: player.getCurrentTime()}
+            //socket.emit('playerEvent', 'play');
+            socket.emit(mydata);
+            player.playVideo();
+        });
+        pauseButton.click(function(event){
+          mydata = {state: 'pause', time: player.getCurrentTime()}
+            socket.emit(mydata);
+            //socket.emit('playerEvent', 'pause');
+            player.pauseVideo();
+        });
+        socket.on('event', function(msg){
+          if (msg.state == 'play'){
+            if (Math.abs(msg.time - player.getCurrentTime()) > 1){
+              player.seekTo(msg.time);
+            }
+              player.playVideo();
+          }else if (msg.state == 'pause'){
+              player.pauseVideo();
+          }
+        var messages = document.getElementById('messages');
+        var form = document.getElementById('form');
+        var input = document.getElementById('input');
+  
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          if (input.value) {
+            socket.emit('chat message', input.value);
+            input.value = '';
+          }
+        });
+  
+        socket.on('chat message', function(msg) {
+          var item = document.createElement('li');
+          item.textContent = msg;
+          messages.appendChild(item);
+          window.scrollTo(0, document.body.scrollHeight);
+        });   
+        });
+        
+      </script>
+    <ul id="messages"></ul>
+      <form id="form" action="">
+        <input id="input" autocomplete="off" />
+        <button id="playVideo" type="button" class="btn btn-default" >
+          <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+          <span class="glyphicon glyphicon-send" aria-hidden="true"></span>
+      </form>
+    
   </body>
 </html>
