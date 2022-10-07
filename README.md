@@ -54,7 +54,7 @@ The following keywords are related to this project:
 
 ## Future Direction
 
-- This project ended May 2022, but open for contributions
+- This project ended May 2022, but is open for contributions
 - Future development plans may include adding username to chatbox, paste and play custom youtube video, dividing users into rooms.
 
 ## Contributors
