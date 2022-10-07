@@ -131,7 +131,18 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background: linear-gradient(to bottom right, #ffffff, #c2c7c5);
 }
-
+.progressBar{
+  width: 600px; 
+  border-style: solid; 
+  top: 50%; 
+  position: relative; 
+  border-width: 1px;
+  color: #555;
+}
+.circle{
+  border-radius: 50%;
+  color:rgb(140, 17, 17)
+}
 .login-box {
   position: absolute;
   top: 50%;

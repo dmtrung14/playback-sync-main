@@ -34,11 +34,11 @@
             <button id= "pauseVideo" type="button" class="btn btn-default">
               <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
               <span class="glyphicon glyphicon-pause" aria-hidden="true"></span>
-            </button>
+            </button> 
           </div>
           <div id="progressbar" style="width: 600 px; height: 37px; margin-left: 10px; float:left;">
-            <div id="line" style="width: 600px; border-style: solid; top: 50%; position: relative; border-width: 1px;"></div>
-            <div id="square" style="height: 15px; width: 15px; position: relative;border-width: 2px;border-style: solid; top: 8.7px;left: 0%  "></div>
+            <div id="line" style="width: 600px; border-style: solid; top: 50%; position: relative; border-width: 1px; background:black"></div>
+            <div id="square" style="height: 15px; width: 15px; position: relative;border-radius:50%; border-width: 2px;border-style: solid; top: 8.7px;left: 0%; background:rgb(170, 16, 16)"></div>
           </div>
         </div>
 
@@ -55,6 +55,7 @@
       <script src="js/bootstrap.min.js"></script>
 
       <script>
+        
         function progressBarLoop () {
           var progressBar = $ ('#progressbar');
           var progressSquare= $ ('#square');
@@ -64,8 +65,9 @@
             console.log(div0ffset);
             var seekTo = (event.pageX - div0ffset.left)/600*videoLength;
             var mydata = {state: 'play', time: seekTo}
-            socket.emit('event',mydata);
+            socket.emit('event', mydata);            
           });
+        
         setInterval(function(){
           if (player == null || progressBar == null){
             return;
@@ -99,7 +101,7 @@
                 'rel':0,
                 'showinfo':0,
                 'autoplay': 1,
-                'mute': 1, 
+                'mute': 0, 
               },
               events: {
                 'onReady': onPlayerReady,
@@ -130,13 +132,21 @@
       var socket = io();
       var playButton = $('#playVideo')
       var pauseButton = $('#pauseVideo')
+      
       playButton.click(function(event){
-          mydata = {state: 'play', time: player.getCurrentTime()}
+        if(mydata.state == 'play'){
+          mydata = {state: 'pause', time: player.getCurrentTime()}
           //socket.emit('playerEvent', 'play');
           socket.emit(mydata);
+          player.pauseVideo();
+        }else if (mydata.state == 'pause'){
+          mydata = {state: 'play', time: player.getCurrentTime()}
+          socket.emit(mydata);
+          //socket.emit('playerEvent', 'pause');
           player.playVideo();
+        }        
       });
-      pauseButton.click(function(event){
+      pauseButton.click(function(event){        
         mydata = {state: 'pause', time: player.getCurrentTime()}
           socket.emit(mydata);
           //socket.emit('playerEvent', 'pause');
@@ -170,7 +180,7 @@
         window.scrollTo(0, document.body.scrollHeight);
       });   
       });
-      
+           
       </script>
       <ul id="messages"></ul>
       <form id="form" action="">
@@ -199,8 +209,7 @@
           messages.prepend(item);
           // window.scrollTo(0, document.body.scrollHeight);
         });
-      </script>
-    
+      </script>   
     
   </body>
 </html>
