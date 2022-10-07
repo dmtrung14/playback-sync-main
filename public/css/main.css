@@ -291,8 +291,29 @@ body {
 }
 
 #player {
-  margin-top: 25px;
+  margin-top: 25 px;
 }
+
+#col-1 {
+  position: fixed;
+  width: 60%;
+  left: 0;
+  height: 100%;
+  padding-top: 100px;
+  padding-left: 50px;
+  z-index: 1010101010
+}
+
+#col-2 {
+  position: fixed;
+  width: 40%;
+  left: 60%;
+  height: 100%;
+  padding-top: 100px;
+  padding-right: 30px;
+  z-index: 1010101010
+}
+
 /* .navbar-nav > .active > a { 
   background-color: #c4c1c0; 
 }

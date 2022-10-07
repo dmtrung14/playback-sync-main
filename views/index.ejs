@@ -11,7 +11,7 @@
       #input:focus { outline: none; }
       #form > button { background: #333; border: none; padding: 0 1rem; margin: 0.25rem; border-radius: 3px; outline: none; color: #fff; }
 
-      #messages { list-style-type: none; margin: 0; padding: 0; }
+      #messages { list-style-type: none; margin-left: 900; padding: 0; }
       #messages > li { padding: 0.5rem 1rem; }
       #messages > li:nth-child(odd) { background: #efefef; }
     </style>
@@ -19,32 +19,31 @@
   <body class="d-flex flex-column min-vh-100">
     <header>
         <%- include('partials/header') %>
-    </header>
+    </header>    
     &nbsp;&nbsp;
-    
-      <div class="one">
-
-        
+     
+    <div id="col-1">
+      <div class="container">        
         <div id="player"></div>
         <div id="controller">
-          <div class="btn-grp" style="float:left;">
-            <button id="playVideo" type="button" class="btn btn-default" >
+          <div class="btn-grp" style="float:left;">            
+            <button id= "pauseVideo" type="button" class="btn btn-default" style="font-size: 24px ;">
+              <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+              <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+            </button> 
+            <button id="playVideo" type="button" class="btn btn-default" style="font-size: 24px" >
               <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
               <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
             </button>
-            <button id= "pauseVideo" type="button" class="btn btn-default">
-              <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
-              <span class="glyphicon glyphicon-pause" aria-hidden="true"></span>
-            </button> 
           </div>
-          <div id="progressbar" style="width: 600 px; height: 37px; margin-left: 10px; float:left;">
-            <div id="line" style="width: 600px; border-style: solid; top: 50%; position: relative; border-width: 1px; background:black"></div>
+          <div id="progressbar" style="width: 700 px; height: 37px; margin-left: 10px; float:left;">
+            <div id="line" style="width: 700px; border-style: solid; top: 50%; position: relative; border-width: 1px; background:black"></div>
             <div id="square" style="height: 15px; width: 15px; position: relative;border-radius:50%; border-width: 0px;border-style: solid; top: 8.7px;left: 0%; background:rgb(170, 16, 16)"></div>
           </div>
         </div>
-
-
       </div>
+</div>
+      
       <!-- /.container -->
 
 
@@ -64,7 +63,7 @@
           progressBar.click(function(event){
             var div0ffset = $ (this).offset();
             console.log(div0ffset);
-            var seekTo = (event.pageX - div0ffset.left)/600*videoLength;
+            var seekTo = (event.pageX - div0ffset.left)/700*videoLength;
             var mydata = {state: 'play', time: seekTo}
             socket.emit('event', mydata);            
           });
@@ -92,8 +91,8 @@
           var player;
           function onYouTubeIframeAPIReady() {
             player = new YT.Player('player', {
-              height: '480',
-              width: '720',
+              height: '540',
+              width: '810',
               videoId: 'jNQXAC9IVRw',
               playerVars: {
                 'disablekb':1,
@@ -180,37 +179,40 @@
         messages.appendChild(item);
         window.scrollTo(0, document.body.scrollHeight);
       });   
-      });
-           
-      </script>
-      <ul id="messages"></ul>
-      <form id="form" action="">
-        <input id="input" autocomplete="off" /><button>Send</button>
-      </form>
-      <script src="/socket.io/socket.io.js"></script>
-  
-      <script>
-        var socket = io();
-  
-        var messages = document.getElementById('messages');
-        var form = document.getElementById('form');
-        var input = document.getElementById('input');
-  
-        form.addEventListener('submit', function(e) {
-          e.preventDefault();
-          if (input.value) {
-            socket.emit('chat message', input.value);
-            input.value = '';
-          }
-        });
-  
-        socket.on('chat message', function(msg) {
-          var item = document.createElement('li');
-          item.textContent = msg
-          messages.prepend(item);
-          // window.scrollTo(0, document.body.scrollHeight);
-        });
-      </script>   
+      });      
+      </script>    
+    <div id="col-2">
+        <h2> Comments </h2>
+        <ul id="messages"></ul>
+        <form id="form" style = "margin-left: 900px; margin-right: 30px;"action="">
+          <input id="input" autocomplete="off" /><button>Send</button>
+        </form>
+      
+        <script src="/socket.io/socket.io.js"></script>
+    </div>
+        <script>
+          var socket = io();
     
+          var messages = document.getElementById('messages');
+          var form = document.getElementById('form');
+          var input = document.getElementById('input');
+    
+          form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            if (input.value) {
+              socket.emit('chat message', input.value);
+              input.value = '';
+            }
+          });
+    
+          socket.on('chat message', function(msg) {
+            var item = document.createElement('li');
+            item.textContent = msg
+            messages.prepend(item);
+            // window.scrollTo(0, document.body.scrollHeight);
+          });
+        </script>   
+    
+   
   </body>
 </html>
