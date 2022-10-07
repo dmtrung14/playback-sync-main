@@ -44,7 +44,7 @@ or
 [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
 ## Technologies Used
-The keywords are related to this project:
+The following keywords are related to this project:
 - NodeJS
 - ExpressJS
 - Socket.io / Websocket
