@@ -37,6 +37,17 @@ or
 
 [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
+## Technologies Used
+The keywords are related to this project:
+- NodeJS
+- ExpressJS
+- Socket.io / Websocket
+- HMTL / EJS
+- CSS
+- JavaScript
+
+## Contributors
+- Many thanks to my best friend [Duy Nguyen](https://github.com/nhdtxdy) for helping me setup and walked me through the process of implementing socketIO in this project
 
 
 
