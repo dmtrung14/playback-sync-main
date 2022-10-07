@@ -14,3 +14,10 @@ a {
 #player {
     margin-top: 25px;
 }
+
+div{
+  width: 65%
+}
+.one{
+  float:left
+}
