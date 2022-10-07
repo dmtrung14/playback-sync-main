@@ -1,28 +1,32 @@
-# express-socketio-chatroom
+# Playback Synchronization and Chat App
 
-Build project using express, socket.io and deploy on Heroku
+Build project on Express, socket.io, and deployed on Heroku. App allows synchronization between users playing youtube video. 
 
+## Accessing the Project
+The project is available at: http://cool-playbacksync-chat.herokuapp.com/
 
-## Documentation
+## Table of Contents:
+- [How to Use](#how-to-use)
+- [Deployment](#deployment)
+- [Technologies Used](#technologies-used)
+- [Contributors](#project-maintainers)
 
-For more information about using this project
+## How to use
+You must have `node.js` installed on your PC to install `JSON` packages, `express`, and `socket.io`
 
-[anonystick.com](https://anonystick.com)
-
-## Running Locally
+### Running Locally
 
 ```js
-    $ git clone https://github.com/anonystick/express-socketio-chatroom.git
-    $ cd express-socketio-chatroom
-    $ npm install
-    $ DEBUG=express-socketio-chatroom:* npm start
-    or
-    $ node bin/www
+    $ git clone https://github.com/dmtrung14/playback-sync-main.git
+    $ cd playback-sync-main
+    $ npm install   
+    $ npm install socket.io
+    $ npm start
 ```
 
 Your app should now be running on [localhost:3000](http://localhost:3000/).
 
-## Deploying to Heroku
+### Deploying to Heroku
 
 ```
 $ heroku create your-name-project
@@ -33,7 +37,6 @@ or
 
 [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
-## Project on Heroku 
-[![Project on Heroku](https://res.cloudinary.com/anonystick/image/upload/v1624440101/javascript/express-socketio-heroku.jpg)](https://express-socketio-room.herokuapp.com/)
+
 
 
