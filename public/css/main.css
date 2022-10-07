@@ -127,9 +127,9 @@ html {
 }
 body {
   margin: 0px;
-  padding: 0px;
+  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background: linear-gradient(to bottom right, #ffffff, #c2c7c5);
+  background: linear-gradient(to bottom,#c3c3c3, #d8d8d8,#ffffff );
 }
 .progressBar{
   width: 600px; 
@@ -302,7 +302,7 @@ body {
 }
 
 #player {
-  margin-top: 25px;
+  padding: 0px
 }
 /* .navbar-nav > .active > a { 
   background-color: #c4c1c0; 
@@ -311,3 +311,13 @@ body {
 .nav-item > a:hover {
   background-color: #9e9c9b;
 } */
+div{
+  width: 65%;
+}
+.one{  
+  float: left;
+  margin-left: 50px;
+}
+.two{
+  float:left;
+}
