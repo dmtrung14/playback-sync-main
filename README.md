@@ -5,10 +5,16 @@ Build project on Express, socket.io, and deployed on Heroku. App allows synchron
 ## Accessing the Project
 The project is available at: http://cool-playbacksync-chat.herokuapp.com/
 
+## Interactive Watch party platform
+![image](https://user-images.githubusercontent.com/60612625/194473545-07f975b2-0413-433e-bdd3-32136d7e4510.png)
+
+Initialize the app by pressing the `refresh` button. Then use the `play` button as usual. Drag the timer to anywhere you want. Type in the chat box to chat with friends!
+
 ## Table of Contents:
 - [How to Use](#how-to-use)
 - [Deployment](#deployment)
 - [Technologies Used](#technologies-used)
+- [Future Direction](#future-direction)
 - [Contributors](#project-maintainers)
 
 ## How to use
@@ -45,6 +51,11 @@ The keywords are related to this project:
 - HMTL / EJS
 - CSS
 - JavaScript
+
+## Future Direction
+
+- This project ended May 2022, but open for contributions
+- Future development plans may include adding username to chatbox, paste and play custom youtube video, dividing users into rooms.
 
 ## Contributors
 - Many thanks to my best friend [Duy Nguyen](https://github.com/nhdtxdy) for helping me setup and walked me through the process of implementing socketIO in this project
