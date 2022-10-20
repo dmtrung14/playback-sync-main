@@ -6,13 +6,13 @@
     <style>
       body { margin: 0; padding-bottom: 3rem; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
 
-      #form { background: rgba(0, 0, 0, 0.15); padding: 0.25rem; position: fixed; bottom: 0; left: 0; right: 0; display: flex; height: 3rem; box-sizing: border-box; backdrop-filter: blur(10px); }
+      #form { background: rgba(0, 0, 0, 0.15); padding: 0.25rem; position: fixed; bottom: 50px; left: 0; right: 0; display: flex; height: 3rem; box-sizing: border-box; backdrop-filter: blur(10px); }
       #input { border: none; padding: 0 1rem; flex-grow: 1; border-radius: 2rem; margin: 0.25rem; }
       #input:focus { outline: none; }
-      #form > button { background: #333; border: none; padding: 0 1rem; margin: 0.25rem; border-radius: 3px; outline: none; color: #fff; }
+      #form > button { background: #333; border: none; margin: 0.25rem; border-radius: 3px; outline: none; color: #fff; }
 
-      #messages { list-style-type: none; margin-left: 900; padding: 0; }
-      #messages > li { padding: 0.5rem 1rem; }
+      #messages { list-style-type: none; margin-left: 900; padding: 0; overflow-y: auto; height: 500px}
+      #messages > li { padding: 0.5rem 1rem;}
       #messages > li:nth-child(odd) { background: #efefef; }
     </style>
   </head>
@@ -183,7 +183,7 @@
       </script>    
     <div id="col-2">
         <h4> Press Sync <i class="fa fa-arrows-rotate"></i> to initialize the app</h4>
-        <h2> Comments </h2>
+        <h2> Live Comments </h2>
         <ul id="messages"></ul>
         <form id="form" style = "margin-left: 900px; margin-right: 30px;"action="">
           <input id="input" autocomplete="off" /><button>Send</button>
@@ -210,7 +210,7 @@
             var item = document.createElement('li');
             item.textContent = msg
             messages.prepend(item);
-            // window.scrollTo(0, document.body.scrollHeight);
+            window.scrollTo(0, document.body.scrollHeight);
           });
         </script>   
     
