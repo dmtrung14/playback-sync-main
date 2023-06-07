@@ -1,64 +1,46 @@
-# Playback Synchronization and Chat App
+# Local Party
+A website where you can create rooms and chat while watching local video files synchronized with your friends.
 
-Build project on Express, socket.io, and deployed on Heroku. App allows synchronization between users playing youtube video. 
+<img src="https://imgur.com/bcdrBr4.png"/><br>
 
-## Accessing the Project
-The project is available at: http://cool-playbacksync-chat.herokuapp.com/
+## Features
 
-## Interactive Watch party platform
-![image](https://user-images.githubusercontent.com/60612625/194473545-07f975b2-0413-433e-bdd3-32136d7e4510.png)
+- Create watch party rooms.
+- Watch videos in sync with your friends.
+- Chat with your friends while watching videos.
 
-Initialize the app by pressing the `refresh` button. Then use the `play` button as usual. Drag the timer to anywhere you want. Type in the chat box to chat with friends!
+## <img src="https://imgur.com/z5Qsm06.png"/>
 
-## Table of Contents:
-- [How to Use](#how-to-use)
-- [Deployment](#deployment)
-- [Technologies Used](#technologies-used)
-- [Future Direction](#future-direction)
-- [Contributors](#project-maintainers)
+## Getting Started
 
-## How to use
-You must have `node.js` installed on your PC to install `JSON` packages, `express`, and `socket.io`
+1) Go to [https://localparty.netlify.app/](https://localparty.netlify.app)
 
-### Running Locally
+2) To create a room, click on the create room button and enter the name you want to chat with, the room's name and select the video file. 
 
-```js
-    $ git clone https://github.com/dmtrung14/playback-sync-main.git
-    $ cd playback-sync-main
-    $ npm install   
-    $ npm install socket.io
-    $ npm start
-```
+3) You would be redirected to the room page once you have created it. You can now share the room code with your friends and they can join with the same video file and room code.
 
-Your app should now be running on [localhost:3000](http://localhost:3000/).
+4) To join a room, click on the join room button and enter the name you want to chat with, the room's code and select the same video file with which the host has created the party with.
 
-### Deploying to Heroku
+5) You can view how many people are in the party by hovering over the user icon in the top right of the room page.
 
-```
-$ heroku create your-name-project
-$ git push heroku main
-$ heroku open
-```
-or
+6) You can leave the party by clicking on the leave icon in the top left of the room page.
 
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+## Video
 
-## Technologies Used
-The following keywords are related to this project:
-- NodeJS
-- ExpressJS
-- Socket.io / Websocket
-- HMTL / EJS
-- CSS
-- JavaScript
+[![Local Party Demo](https://img.youtube.com/vi/Tw1BuJPapg4/hqdefault.jpg)](https://youtu.be/Tw1BuJPapg4)
 
-## Future Direction
+## Media
+An album of screenshots of the website can be found [here](https://imgur.com/a/wzKc2g7).
 
-- This project ended May 2022, but is open for contributions
-- Future development plans may include adding username to chatbox, paste and play custom youtube video, dividing users into rooms.
+## Contributing
 
-## Contributors
-- Many thanks to my best friend [Duy Nguyen](https://github.com/nhdtxdy) for helping me setup and walked me through the process of implementing socketIO in this project
+1) Fork
+2) Clone and setup
 
+    ``` 
+    git clone https://github.com/sheldor1510/local-party.git
+    cd local-party
+    ```
+3) Open a live server
 
-
+Check out the backend API [here](https://github.com/sheldor1510/local-party-api).
