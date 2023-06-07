@@ -1,46 +1,56 @@
-# Local Party
-A website where you can create rooms and chat while watching local video files synchronized with your friends.
+# Playback Synchronization and Chat App
 
-<img src="https://imgur.com/bcdrBr4.png"/><br>
+Build project on Express, socket.io, and deployed on Heroku. App allows synchronization between users playing youtube video. 
 
-## Features
+## Accessing the Project
+The project is available at: https://playback-synchronizer.netlify.app/
 
-- Create watch party rooms.
-- Watch videos in sync with your friends.
-- Chat with your friends while watching videos.
+## Interactive Watch party platform
+![image](https://user-images.githubusercontent.com/60612625/194473545-07f975b2-0413-433e-bdd3-32136d7e4510.png)
 
-## <img src="https://imgur.com/z5Qsm06.png"/>
+Create Room or Join Existing Room, drag the desired movies to watch synchronously with other users.
 
-## Getting Started
+## Table of Contents:
+- [Local Deployment](#local-deployment)
+- [Technologies Used](#technologies-used)
+- [Future Direction](#future-direction)
+- [Contributors](#project-maintainers)
 
-1) Go to [https://localparty.netlify.app/](https://localparty.netlify.app)
+### Local Deploymenet
 
-2) To create a room, click on the create room button and enter the name you want to chat with, the room's name and select the video file. 
+```js
+    $ git clone https://github.com/dmtrung14/playback-sync-main.git
+    $ cd playback-sync-main
+    $ Go Live with VSCode
+```
 
-3) You would be redirected to the room page once you have created it. You can now share the room code with your friends and they can join with the same video file and room code.
+Your app should now be running on [localhost:5500](http://localhost:5500/).
 
-4) To join a room, click on the join room button and enter the name you want to chat with, the room's code and select the same video file with which the host has created the party with.
 
-5) You can view how many people are in the party by hovering over the user icon in the top right of the room page.
+#### Deploying to Netlify
 
-6) You can leave the party by clicking on the leave icon in the top left of the room page.
+You could also host directly with Netlify by linking your own repository.
 
-## Video
+[![Deploy To Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=[your-repository-here])
 
-[![Local Party Demo](https://img.youtube.com/vi/Tw1BuJPapg4/hqdefault.jpg)](https://youtu.be/Tw1BuJPapg4)
+For more information, read [hosting on Netlify](https://create-react-app.dev/docs/deployment/#netlify).
 
-## Media
-An album of screenshots of the website can be found [here](https://imgur.com/a/wzKc2g7).
+## Technologies Used
+- NodeJS
+- ExpressJS
+- Socket.io / Websocket
+- HMTL / EJS
+- CSS
+- JavaScript
 
-## Contributing
+## Change Log and Future Directions
 
-1) Fork
-2) Clone and setup
+- The original version of this project was finalized in May 2022, as an YouTube watch party implementing YouTube APIs
+- The project was restarted in May 2023 for FE rennovations.
+- The contributors plan to implement link embed instead of file uploads.
 
-    ``` 
-    git clone https://github.com/sheldor1510/local-party.git
-    cd local-party
-    ```
-3) Open a live server
+## Contributors
+- Thanks to [Duy Nguyen](https://github.com/nhdtxdy) for helping walking me through socketIO in this project
 
-Check out the backend API [here](https://github.com/sheldor1510/local-party-api).
+
+
