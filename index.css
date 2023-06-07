@@ -4,18 +4,22 @@
 }
 
 body {
-  background-color: #111316;
+  background-color: #ffe9e6;
   color: white;
   font-family: 'Lexend Deca', sans-serif
 }
 
 .back-btn{
   font-size: 2rem;
-  color: white;
+  color: #ff673b;
+  /* background: -webkit-linear-gradient(#ff673b, #ffacc7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; */
 }
 
 .back-btn:hover {
   cursor: pointer;
+  color: black
 }
 
 /* Landing Page Start */
@@ -25,7 +29,7 @@ body {
 }
 
 .main{
-  background-color: #111316;
+  background-color: #ffe9e6;
   height: 100vh;
 }
 
@@ -35,7 +39,10 @@ body {
 
 .head{
   font-size: 3.5rem;
-  color: white;
+  background: -webkit-linear-gradient(#ff673b, #ffacc7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /* color: linear-gradient(#ff673b, ); */
   font-family: 'Airbnb';
 }
 
@@ -79,6 +86,9 @@ body {
 .create-head{
   font-family: 'Airbnb';
   font-size: 3.5rem;
+  background: -webkit-linear-gradient(#ff673b, #ffacc7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .create-col{
@@ -86,8 +96,8 @@ body {
 }
 
 input{
-  background-color: #111316;
-  color: white;
+  background-color: white;
+  color: black;
   border-radius: 5px;
   width: 20rem;
   font-size: 1.1rem;
@@ -127,6 +137,7 @@ input:focus{
 
 .join-col{
   margin-top: 20vh;
+  
 }
 
 /* Join Page End */
@@ -145,12 +156,13 @@ input:focus{
 
 #roomCodeText:hover{
   cursor: pointer;
+  color: black;
 }
 
 .right-side{
   height: 100vh;
   width: 22%;
-  background-color: #111316;
+  background-color: #ffe9e6;
 }
 
 .video{
@@ -166,10 +178,12 @@ input:focus{
 
 .icon{
   font-size: 1.5rem;
+  color: #ff5c24
 }
 
 .room-code, .members{
   font-size: 1.2rem;
+  color: #ff5c24
 }
 
 ::-webkit-scrollbar{
@@ -194,6 +208,7 @@ input:focus{
   height: 80vh;
   overflow-y: scroll;
   overflow-x: hidden;
+  color: black
 }
 
 @media(max-width: 2000px){
@@ -251,12 +266,12 @@ input:focus{
   width: inherit;
   box-shadow: none;
   border: none;
-  color: white;
-  background-color: gray;
+  color: #ff5c24;
+  background-color: rgb(255, 255, 255);
 }
 
 #messageInp::placeholder{
-  color: white;
+  color: #ff5c24;
   font-size: 0.8rem;
 }
 
