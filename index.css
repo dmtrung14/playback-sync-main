@@ -46,6 +46,11 @@ body {
   font-family: 'Airbnb';
 }
 
+.vice-head{
+  font-family: "Brush Script MT", Brush Script Std, cursive;
+  color: black
+}
+
 .buttons{
   border-radius: 5px;
   background-color: white;
