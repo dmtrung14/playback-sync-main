@@ -1,12 +1,13 @@
 # Playback Synchronization and Chat App
 
-Build project on Express, socket.io, and deployed on Heroku. App allows synchronization between users playing youtube video. 
+Build project on Express, socket.io, and deployed on Netlify. App allows synchronization between users playing the same video files. ![Screenshot 2023-05-09 234720](https://github.com/dmtrung14/playback-sync-main/assets/60612625/c39345f9-6a00-4794-a808-3d9dd67c31e0)
+
 
 ## Accessing the Project
 The project is available at: https://playback-synchronizer.netlify.app/
 
 ## Interactive Watch party platform
-![image](https://user-images.githubusercontent.com/60612625/194473545-07f975b2-0413-433e-bdd3-32136d7e4510.png)
+![Yes I am Ed Sheeran's fan and this is an excerpt from his MV](https://github.com/dmtrung14/playback-sync-main/assets/60612625/4a9b3497-f77d-4951-8e39-5ca87f3bba8d)
 
 Create Room or Join Existing Room, drag the desired movies to watch synchronously with other users.
 
